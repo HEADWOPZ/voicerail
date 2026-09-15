@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "voicerail"
+version = "0.1.0"
+description = "Local voice-clone MCP for CT creators — narrate threads, loom scripts, and Shorts VO on-device."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Kevin Lance Murray" },
+]
+keywords = [
+    "mcp",
+    "tts",
+    "voice-clone",
+    "local",
+    "privacy",
+    "crypto-twitter",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Intended Audience :: Developers",
+]
+dependencies = [
+    "mcp>=1.28,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+voicerail = "voicerail.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/HEADWOPZ/voicerail"
+Repository = "https://github.com/HEADWOPZ/voicerail"
+Issues = "https://github.com/HEADWOPZ/voicerail/issues"
+Privacy = "https://github.com/HEADWOPZ/voicerail/blob/main/PRIVACY.md"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["voicerail"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+    "/PRIVACY.md",
+    "/examples",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
