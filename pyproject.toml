@@ -49,8 +49,8 @@ Repository = "https://github.com/HEADWOPZ/voicerail"
 Issues = "https://github.com/HEADWOPZ/voicerail/issues"
 Privacy = "https://github.com/HEADWOPZ/voicerail/blob/main/PRIVACY.md"
 
-[tool.hatch.build.targets.wheel]
-only-include = ["voicerail"]
+[tool.hatch.build]
+dev-mode-dirs = ["src"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -63,6 +63,7 @@ include = [
 ]
 
 [tool.pytest.ini_options]
+pythonpath = ["src"]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 addopts = "-q"
