@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "voicerail": {
+      "command": "voicerail",
+      "args": ["mcp"],
+      "env": {
+        "VOICERAIL_ENGINE": "mock"
+      }
+    }
+  }
+}
